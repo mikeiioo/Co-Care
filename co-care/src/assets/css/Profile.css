@@ -1,0 +1,67 @@
+.profile-container {
+    background-color: #43B3BF;
+    width: 40vw;
+    color: white;
+    border-radius: 20px;
+    margin-left: 80px;
+    padding-bottom: 20px;
+}
+
+.information {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+.profile-label {
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.primary-concern {
+    background-color: #B0E1E8;
+    height: 50px;
+    margin: 5px 40px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.dropup {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 60px; /* adjust as needed */
+    left: 0;
+    background-color: transparent; /* let primary-concern handle background */
+    box-shadow: none;
+    padding: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.dropup:hover .dropup-content {
+    display: block;
+}
+
+.menu {
+    background-color: #8ebfc7;
+}
+
+.first {
+    margin-left: 30px;
+}
+
+.edit-icon {
+    width: 25px;
+    height: 25px;
+    margin: 20px 5px;
+}
+
+.edit {
+    display: flex;
+    font-weight: 100;
+}

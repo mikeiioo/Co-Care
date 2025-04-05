@@ -1,0 +1,30 @@
+.account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account-input {
+    width: 550px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1.5px solid gray;
+}
+
+.account-field {
+    margin: 10px;
+}
+
+.acct-label {
+    margin-bottom: 15px;
+}
+
+.login-button {
+    margin-top: 60px;
+}
+
+.signup {
+    margin: 20px;
+}
+

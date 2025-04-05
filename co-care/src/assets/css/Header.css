@@ -1,0 +1,19 @@
+.profile {
+    width: 35px;
+    height: 35px;
+    padding: 40px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .title {
+    padding: 30px;
+    font-size: 30px;
+    color: #50AC96;
+    font-family: "Hammersmith One";
+  }
