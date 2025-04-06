@@ -12,7 +12,7 @@ function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your insurance assistant. How can I help you understand your insurance options today?",
+      text: "Hello! My name is Corey, and I am a guide into the insurance world, ready to answer any of your questions. How may I help you today?",
       sender: 'bot',
       timestamp: new Date(),
     },
@@ -49,8 +49,8 @@ function Chat() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="bg-white shadow rounded-lg flex flex-col h-[calc(100vh-12rem)]">
         <div className="p-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Insurance Assistant</h2>
-          <p className="text-sm text-gray-500">Ask me anything about insurance terms or plans</p>
+          <h2 className="text-lg font-semibold text-gray-900">Corey</h2>
+          <p className="text-sm text-gray-500">A 24/7 insurance assistant ready to answer any question</p>
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
