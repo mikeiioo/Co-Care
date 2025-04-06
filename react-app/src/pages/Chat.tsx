@@ -12,37 +12,54 @@ function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your insurance assistant. How can I help you understand your insurance options today?",
+      text: "Hello! I'm your insurance assistant. How can I help you today?",
       sender: 'bot',
       timestamp: new Date(),
     },
   ]);
   const [input, setInput] = useState('');
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
+    const currentInput = input;
+    setInput('');
+
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: input,
+      text: currentInput,
       sender: 'user',
       timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, userMessage]);
-    setInput('');
 
-    // Simulate bot response
-    setTimeout(() => {
+    console.log("📤 Sending to backend:", currentInput);
+
+    try {
+      const res = await fetch('http://localhost:5000/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: currentInput }),
+      });
+
+      const data = await res.json();
+      console.log("✅ Got response from backend:", data);
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I understand you're asking about insurance. Let me help explain that in simple terms...",
+        text: data.response,
         sender: 'bot',
         timestamp: new Date(),
       };
+
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+    } catch (error) {
+      console.error("❌ Fetch failed:", error);
+    }
   };
 
   return (
@@ -50,7 +67,7 @@ function Chat() {
       <div className="bg-white shadow rounded-lg flex flex-col h-[calc(100vh-12rem)]">
         <div className="p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">Insurance Assistant</h2>
-          <p className="text-sm text-gray-500">Ask me anything about insurance terms or plans</p>
+          <p className="text-sm text-gray-500">Ask me anything about insurance</p>
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
