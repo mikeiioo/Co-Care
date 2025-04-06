@@ -1,12 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Heart } from 'lucide-react';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Chat from './pages/Chat';
-import ExplorePlans from './pages/ExplorePlans';
-import ComparePlans from './pages/ComparePlans';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Heart } from "lucide-react";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Chat from "./pages/Chat";
+import ExplorePlans from "./pages/ExplorePlans";
+import ComparePlans from "./pages/ComparePlans";
+import PlanDetails from "./pages/PlanDetails";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 function App() {
   return (
     <Router>
@@ -18,14 +20,39 @@ function App() {
               <div className="flex items-center">
                 <Link to="/" className="flex items-center">
                   <Heart className="w-8 h-8 text-blue-500" />
-                  <span className="ml-2 text-xl font-semibold text-gray-900">Co-Care</span>
+                  <span className="ml-2 text-xl font-semibold text-gray-900">
+                    Co-Care
+                  </span>
                 </Link>
               </div>
               <div className="flex items-center space-x-8">
-                <Link to="/explore" className="text-gray-600 hover:text-gray-900">Explore Plans</Link>
-                <Link to="/compare" className="text-gray-600 hover:text-gray-900">Compare</Link>
-                <Link to="/chat" className="text-gray-600 hover:text-gray-900">Chat</Link>
-                <Link to="/profile" className="text-gray-600 hover:text-gray-900">Profile</Link>
+                <Link
+                  to="/explore"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Explore Plans
+                </Link>
+                <Link
+                  to="/compare"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Compare
+                </Link>
+                <Link to="/chat" className="text-gray-600 hover:text-gray-900">
+                  Chat
+                </Link>
+                <Link
+                  to="/profile"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Profile
+                </Link>
+                <Link
+                  to="/signin"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Sign in
+                </Link>
               </div>
             </div>
           </div>
@@ -37,6 +64,9 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/explore" element={<ExplorePlans />} />
           <Route path="/compare" element={<ComparePlans />} />
+          <Route path="/plan/:id" element={<PlanDetails />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </div>
     </Router>
